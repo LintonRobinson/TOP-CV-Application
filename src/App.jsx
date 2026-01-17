@@ -44,7 +44,27 @@ function App() {
           </div>
         </section>
         <section className="user-cv-section">
-          <div className="cv-document"></div>
+          <div className="cv-document">
+            <div className="cv-document-top">
+              <h2>Ya Mama</h2>
+              {/* <h2>{userCvData.firstName + " " + userCvData.lastName}</h2> */}
+              <h3>Ya Mama's Title</h3>
+            </div>
+            <div className="cv-document-bottom">
+              <div className="cv-document-bottom-left">
+                <div className="profile-wrapper bottom-left-section-wrapper">
+                  <h4>Profile</h4>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Voluptatem cumque illum, suscipit nam nesciunt culpa modi
+                    tempora, ad eius enim odio in laboriosam adipisci quaerat
+                    aspernatur aut molestias non totam!
+                  </p>
+                </div>
+              </div>
+              <div className="cv-document-bottom-right"></div>
+            </div>
+          </div>
         </section>
       </main>
     </>

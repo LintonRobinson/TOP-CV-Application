@@ -56,6 +56,11 @@ button {
 }
 
 h2 {
+  font-size: 1.1rem;
+}
+
+h3 {
+  letter-spacing: 4px;
 }
 
 button {
@@ -180,12 +185,61 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
 }
 
 .cv-document {
-  width: 700px;
-  height: 80%;
+  width: 780px;
+  height: 100%;
+  padding: 25px;
   background-color: white;
+  box-shadow: 2px 2px 14px -8px rgba(0, 0, 0, 0.86);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* .cv-document * {
+  border: red 1px solid;
+} */
+
+.cv-document-top {
+  padding: 0 15px 15px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+.user-cv-section h2 {
+  font-size: 2.5rem;
+}
+
+.cv-document-bottom {
+  display: flex;
+  height: 100;
+  flex-grow: 1;
+}
+
+.cv-document-bottom-left {
+  width: 65%;
+  padding-right: 15px;
+}
+
+.bottom-left-section-wrapper {
+  padding: 15px 0;
+  border-bottom: dotted 2px var(--accent-color);
+}
+
+.profile-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cv-document-bottom-right {
+  width: 35%;
+  background-color: #eff3f5;
 }
 /******************************************
 /* UTILITY STYLES
