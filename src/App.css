@@ -1,3 +1,7 @@
+:root {
+  --accent-color: rgb(0, 166, 255);
+}
+
 /* Box Model Hack */
 * {
   box-sizing: border-box;
@@ -43,7 +47,6 @@ button {
 /*******************************************/
 
 * {
-  border: solid 1px black;
 }
 
 #root {
@@ -52,8 +55,12 @@ button {
   height: 100vh;
 }
 
+h2 {
+}
+
 button {
   text-align: center;
+  border-radius: 10px;
 }
 
 /******************************************
@@ -68,18 +75,30 @@ header {
   );
   color: white;
   display: flex;
-  flex-direction: column;
-  padding: 25px 50px;
+
+  padding: 20px 50px;
   align-items: center;
+  justify-content: space-between;
   gap: 15px;
 }
 
-header div {
+header div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header div:nth-child(1) p {
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 1px;
+}
+
+header div:nth-child(2) {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  padding: 10px 15px;
+  padding: 5px 15px;
   background: rgba(255, 255, 255, 0.419);
   border-radius: 10px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -90,7 +109,6 @@ header div {
 header button {
   background-color: black;
   padding: 10px 15px;
-  border-radius: 10px;
 }
 
 main {
@@ -98,6 +116,77 @@ main {
   display: flex;
 }
 
+.enter-details-section {
+  padding: 20px 40px;
+  width: clamp(0px, 50%, 455px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.enter-details-top-wrapper {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 25px;
+  border-bottom: 1.7px solid rgba(201, 201, 201, 0.441);
+}
+
+.enter-details-top-wrapper button {
+  font-weight: 700;
+  padding: 10px 5px;
+}
+
+.enter-details-top-wrapper button:nth-child(1) {
+  border: solid 1.6px rgb(251, 114, 114);
+  color: red;
+  width: 30%;
+}
+
+.enter-details-top-wrapper button:nth-child(2) {
+  border: solid 1.6px var(--accent-color);
+  color: rgb(0, 110, 255);
+  width: 70%;
+}
+
+.personal-details {
+  padding: 15px;
+  border: solid 1.5px rgba(0, 166, 255, 0.48);
+  border-radius: 10px;
+  box-shadow: 0px 2px 11px -9px rgba(0, 0, 0, 0.86);
+}
+
+.personal-details > div:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.personal-details > div:nth-child(1) > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.personal-details .fa-user {
+  color: var(--accent-color);
+}
+
+.user-cv-section {
+  background-color: #525659;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cv-document {
+  width: 700px;
+  height: 80%;
+  background-color: white;
+}
 /******************************************
 /* UTILITY STYLES
 /*******************************************/
