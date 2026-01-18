@@ -46,9 +46,9 @@ function App() {
         <section className="user-cv-section">
           <div className="cv-document">
             <div className="cv-document-top">
-              <h2>Ya Mama</h2>
+              <h2>Test Name</h2>
               {/* <h2>{userCvData.firstName + " " + userCvData.lastName}</h2> */}
-              <h3>Ya Mama's Title</h3>
+              <h3>Test Name's Title</h3>
             </div>
             <div className="cv-document-bottom">
               <div className="cv-document-bottom-left">
@@ -60,6 +60,25 @@ function App() {
                     tempora, ad eius enim odio in laboriosam adipisci quaerat
                     aspernatur aut molestias non totam!
                   </p>
+                </div>
+
+                <div className="work-experience-wrapper bottom-left-section-wrapper">
+                  <div>
+                    <h4>Work Experience</h4>
+                    <span>July 2023 - Sep 2023</span>
+                  </div>
+                  <div>
+                    <div>
+                      <h5>Achieve Without Borders, Inc.</h5>
+                      <h6>Full Stack Developer Intern</h6>
+                    </div>
+                    <ul>
+                      <li>What I did</li>
+                      <li>What I did</li>
+                      <li>What I did</li>
+                      <li>What I did</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
               <div className="cv-document-bottom-right"></div>
