@@ -1,0 +1,57 @@
+.enter-details-section {
+  padding: 20px 40px;
+  width: clamp(0px, 50%, 455px);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  transition: 1s background-color ease;
+}
+
+.enter-details-section {
+  padding: 20px 40px;
+  width: clamp(0px, 50%, 455px);
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  transition: 1s background-color ease;
+}
+
+.enter-details-section.highlight {
+  background-color: rgba(255, 255, 0, 0.357);
+}
+
+.enter-details-section > span {
+  display: block;
+  text-align: center;
+}
+
+.enter-details-top-wrapper {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 25px;
+  border-bottom: 1.7px solid rgba(201, 201, 201, 0.441);
+}
+
+.enter-details-top-wrapper button {
+  font-weight: 700;
+  padding: 10px 5px;
+}
+
+.enter-details-top-wrapper button:hover {
+  background-color: #5a8ac535;
+  transition: 0.5s ease;
+}
+
+.enter-details-top-wrapper button:nth-child(1) {
+  border: solid 1.6px rgb(251, 114, 114);
+  color: red;
+  width: 30%;
+}
+
+.enter-details-top-wrapper button:nth-child(2) {
+  border: solid 1.6px var(--accent-color);
+  color: rgb(0, 110, 255);
+  width: 70%;
+}

@@ -64,7 +64,7 @@ h3 {
 }
 
 h4 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   letter-spacing: 2px;
 }
 
@@ -80,6 +80,11 @@ h6 {
 button {
   text-align: center;
   border-radius: 10px;
+  opacity: 1;
+  transition: 0.5s ease;
+}
+
+label {
 }
 
 /******************************************
@@ -87,11 +92,7 @@ button {
 /*******************************************/
 header {
   background: #114f9c;
-  background: linear-gradient(
-    90deg,
-    rgba(17, 79, 156, 1) 0%,
-    rgba(0, 0, 0, 1) 100%
-  );
+  background: linear-gradient(90deg, rgba(17, 79, 156, 1) 0%, rgba(0, 0, 0, 1) 100%);
   color: white;
   display: flex;
 
@@ -130,75 +131,24 @@ header button {
   padding: 10px 15px;
 }
 
+header button:hover {
+  background-color: rgba(60, 60, 60, 0.659);
+  transition: 0.5s ease;
+}
+
 main {
   flex-grow: 1;
   display: flex;
-}
-
-.enter-details-section {
-  padding: 20px 40px;
-  width: clamp(0px, 50%, 455px);
-
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-
-.enter-details-top-wrapper {
-  display: flex;
-  gap: 15px;
-  padding-bottom: 25px;
-  border-bottom: 1.7px solid rgba(201, 201, 201, 0.441);
-}
-
-.enter-details-top-wrapper button {
-  font-weight: 700;
-  padding: 10px 5px;
-}
-
-.enter-details-top-wrapper button:nth-child(1) {
-  border: solid 1.6px rgb(251, 114, 114);
-  color: red;
-  width: 30%;
-}
-
-.enter-details-top-wrapper button:nth-child(2) {
-  border: solid 1.6px var(--accent-color);
-  color: rgb(0, 110, 255);
-  width: 70%;
-}
-
-.personal-details {
-  padding: 15px;
-  border: solid 1.5px rgba(0, 166, 255, 0.48);
-  border-radius: 10px;
-  box-shadow: 0px 2px 11px -9px rgba(0, 0, 0, 0.86);
-}
-
-.personal-details > div:nth-child(1) {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.personal-details > div:nth-child(1) > div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  gap: 15px;
-}
-
-.personal-details .fa-user {
-  color: var(--accent-color);
 }
 
 .user-cv-section {
   background-color: #525659;
   flex-grow: 1;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 15px;
   padding: 20px;
 }
 
@@ -231,7 +181,6 @@ main {
 
 .cv-document-bottom {
   display: flex;
-  height: 100;
   flex-grow: 1;
 }
 
@@ -240,47 +189,20 @@ main {
   padding-right: 15px;
 }
 
-.bottom-left-section-wrapper {
-  padding: 15px 0;
-  border-bottom: dotted 2px var(--accent-color);
-}
-
-.bottom-left-section-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.work-experience-wrapper > div:nth-child(1) {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.work-experience-wrapper > div:nth-child(2) {
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-}
-
-.work-experience-wrapper > div:nth-child(2) div {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.work-experience-wrapper ul {
-  padding-left: 30px;
-}
-
-.work-experience-wrapper li {
-  font-size: 0.7rem;
-}
-
 .cv-document-bottom-right {
-  width: 35%;
   background-color: #eff3f5;
+  padding: 0 20px;
 }
+
+.cv-document-bottom-right .bottom-section-wrapper:nth-child(1) div {
+  display: flex;
+  gap: 15px;
+}
+.cv-document-bottom-right li,
+.cv-document-bottom-right span {
+  font-size: 0.9rem;
+}
+
 /******************************************
 /* UTILITY STYLES
 /*******************************************/
