@@ -10,7 +10,47 @@ export default function CsvRegionFormWrapper({ userCvData, setUserCvData }) {
   const [activeFormId, setActiveFormId] = useState("");
 
   const handleSetActiveFormId = (formId) => {
-    setActiveFormId(formId);
+    console.log("Ya Mami");
+    if (formId && userCvData[formId].length === 0) {
+      addToEmptyCategory(formId);
+    } else {
+      setActiveFormId(formId);
+    }
+  };
+
+  const addToEmptyCategory = (dataCategory) => {
+    let newDataCategoryArray = [];
+
+    const defaultCategoryObjects = {
+      workExperience: {
+        id: crypto.randomUUID(),
+        position: "",
+        company: "",
+        startDate: "",
+        endDate: "",
+        descriptions: [{ id: crypto.randomUUID(), description: "" }],
+      },
+      education: {
+        id: crypto.randomUUID(),
+        school: "",
+        course: "",
+        startDate: "",
+        endDate: "",
+        descriptions: [{ id: crypto.randomUUID(), description: "" }],
+      },
+      skills: {
+        id: crypto.randomUUID(),
+        description: "",
+      },
+      tools: {
+        id: crypto.randomUUID(),
+        description: "my first tool",
+      },
+    };
+    console.log("its empty", dataCategory);
+    newDataCategoryArray.push(structuredClone(defaultCategoryObjects[dataCategory]));
+    setActiveFormId(dataCategory);
+    setUserCvData((prev) => ({ ...prev, [dataCategory]: newDataCategoryArray }));
   };
 
   return (
@@ -20,6 +60,7 @@ export default function CsvRegionFormWrapper({ userCvData, setUserCvData }) {
         formName={"Personal Details"}
         className={"personalDetails"}
         setUserCvData={setUserCvData}
+        userCvData={userCvData}
         activeFormId={activeFormId}
         handleSetActiveFormId={handleSetActiveFormId}
         icon={"fa-user"}
@@ -36,6 +77,7 @@ export default function CsvRegionFormWrapper({ userCvData, setUserCvData }) {
         dataCategory={"profileSummary"}
         formName={"Profile Summary"}
         className={"profileSummary"}
+        userCvData={userCvData}
         setUserCvData={setUserCvData}
         activeFormId={activeFormId}
         handleSetActiveFormId={handleSetActiveFormId}
@@ -53,13 +95,43 @@ export default function CsvRegionFormWrapper({ userCvData, setUserCvData }) {
       </CsvRegionForm>
       <CsvRegionForm
         dataCategory={"workExperience"}
-        formName={"Work Experience"}
+        formName={"Work Experiences"}
         className={"workExperience"}
         setUserCvData={setUserCvData}
         activeFormId={activeFormId}
         handleSetActiveFormId={handleSetActiveFormId}
         icon={"fa-briefcase"}
         userCvData={userCvData}
+      />
+      <CsvRegionForm
+        dataCategory={"education"}
+        formName={"Education"}
+        className={"education"}
+        setUserCvData={setUserCvData}
+        activeFormId={activeFormId}
+        handleSetActiveFormId={handleSetActiveFormId}
+        icon={"fa-graduation-cap"}
+        userCvData={userCvData}
+      />
+      <CsvRegionForm
+        dataCategory={"tools"}
+        formName={"Tools"}
+        className={"tools"}
+        setUserCvData={setUserCvData}
+        userCvData={userCvData}
+        activeFormId={activeFormId}
+        handleSetActiveFormId={handleSetActiveFormId}
+        icon={"fa-screwdriver-wrench"}
+      />
+      <CsvRegionForm
+        dataCategory={"skills"}
+        formName={"Skills"}
+        className={"skills"}
+        setUserCvData={setUserCvData}
+        userCvData={userCvData}
+        activeFormId={activeFormId}
+        handleSetActiveFormId={handleSetActiveFormId}
+        icon={"fa-thumbs-up"}
       />
     </div>
   );

@@ -11,11 +11,15 @@
 .enter-details-section {
   padding: 20px 40px;
   width: clamp(0px, 50%, 455px);
+  max-width: 455px;
   background-color: white;
   display: flex;
   flex-direction: column;
   gap: 25px;
   transition: 1s background-color ease;
+
+  flex: 1 1 auto; /* take available space */
+  min-height: 0;
 }
 
 .enter-details-section.highlight {
@@ -54,4 +58,10 @@
   border: solid 1.6px var(--accent-color);
   color: rgb(0, 110, 255);
   width: 70%;
+}
+
+.enter-details-bottom-wrapper {
+  height: 100%;
+  overflow-y: scroll;
+  border-bottom: 1.7px solid rgba(201, 201, 201, 0.441);
 }

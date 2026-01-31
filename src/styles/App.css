@@ -46,6 +46,10 @@ button {
 /* BASE STYLES
 /*******************************************/
 
+body {
+  overflow: hidden;
+}
+
 * {
 }
 
@@ -84,7 +88,19 @@ button {
   transition: 0.5s ease;
 }
 
-label {
+.fa-caret-down,
+.fa-caret-up {
+  color: black !important;
+}
+
+.fa-trash {
+  color: rgb(253, 126, 103) !important;
+}
+
+span {
+  display: block;
+
+  min-width: 0;
 }
 
 /******************************************
@@ -95,7 +111,7 @@ header {
   background: linear-gradient(90deg, rgba(17, 79, 156, 1) 0%, rgba(0, 0, 0, 1) 100%);
   color: white;
   display: flex;
-
+  flex: 0 0 auto;
   padding: 20px 50px;
   align-items: center;
   justify-content: space-between;
@@ -137,8 +153,9 @@ header button:hover {
 }
 
 main {
-  flex-grow: 1;
   display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
 }
 
 .user-cv-section {
@@ -153,7 +170,6 @@ main {
 }
 
 .cv-document {
-  width: 780px;
   height: 100%;
   padding: 25px;
   background-color: white;
@@ -187,6 +203,9 @@ main {
 .cv-document-bottom-left {
   width: 65%;
   padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .cv-document-bottom-right {

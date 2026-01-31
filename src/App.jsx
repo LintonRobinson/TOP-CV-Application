@@ -18,8 +18,33 @@ function App() {
     },
     profileSummary: { profileSummary: "A well thought out somethin" },
     workExperience: [
-      { id: 69, position: "full stack", company: "Sphinx", startDate: "1/28/26", endDate: "1/29/26", descriptions: ["running around taking pics", "going to the store to do something else"] },
+      {
+        id: 69,
+        position: "Videographer",
+        company: "Sphinx",
+        startDate: "June 2024",
+        endDate: "August 2024",
+        descriptions: [
+          { id: 1, description: "running around taking pics" },
+          { id: 2, description: "ya around taking pics" },
+        ],
+      },
     ],
+    education: [
+      {
+        id: 67,
+        school: "Berklee",
+        course: "CWP",
+        startDate: "Ya Ma 2024",
+        endDate: "1/29/26",
+        descriptions: [
+          { id: 1, description: "going to the stu" },
+          { id: 2, description: "caf shows" },
+        ],
+      },
+    ],
+    skills: [{ id: 4, description: "The first skill" }],
+    tools: [{ id: 7, description: "The first tool" }],
   });
 
   const [enterDetailsSectionFlash, setEnterDetailsSectionFlash] = useState(false);
@@ -64,42 +89,8 @@ function App() {
                   <h4>Profile Summary</h4>
                   <p>{userCvData.profileSummary.profileSummary}</p>
                 </CsvRegion>
-                <CsvRegion regionTitle={"Work Experience"} className={"work-experience-wrapper"}>
-                  <div>
-                    <h4>Work Experience</h4>
-                    <span>July 2023 - Sep 2023</span>
-                  </div>
-                  <div>
-                    <div>
-                      <h5>Achieve Without Borders, Inc.</h5>
-                      <h6>Full Stack Developer Intern</h6>
-                    </div>
-                    <ul>
-                      <li>What I did</li>
-                      <li>What I did</li>
-                      <li>What I did</li>
-                      <li>What I did</li>
-                    </ul>
-                  </div>
-                </CsvRegion>
-                <div className="education-wrapper bottom-section-wrapper">
-                  <div>
-                    <h4>Education</h4>
-                    <span>July 2023 - Sep 2023</span>
-                  </div>
-                  <div>
-                    <div>
-                      <h5>Achieve Without Borders, Inc.</h5>
-                      <h6>Full Stack Developer Intern</h6>
-                    </div>
-                    <ul>
-                      <li>What I did</li>
-                      <li>What I did</li>
-                      <li>What I did</li>
-                      <li>What I did</li>
-                    </ul>
-                  </div>
-                </div>
+                <CsvRegion regionTitle={"Work Experience"} className={"experience-wrapper"} renderExperience={true} userCvData={userCvData} dataCategory={"workExperience"} />
+                <CsvRegion regionTitle={"Education"} className={"experience-wrapper"} renderExperience={true} userCvData={userCvData} dataCategory={"education"} />
               </div>
               <div className="cv-document-bottom-right">
                 <div className="bottom-section-wrapper">
@@ -120,6 +111,16 @@ function App() {
                     <i className="fa-regular fa-location-dot"></i>
                     <span>{userCvData.personalDetails.location}</span>
                   </div>
+                </div>
+                <div className="bottom-section-wrapper">
+                  <h4>Tools</h4>
+
+                  <ul>
+                    <li>What I did</li>
+                    <li>What I did</li>
+                    <li>What I did</li>
+                    <li>What I did</li>
+                  </ul>
                 </div>
                 <div className="bottom-section-wrapper">
                   <h4>Tools</h4>
