@@ -6,53 +6,7 @@ import CsvRegionForm from "../components/CsvRegionForm.jsx";
 import CsvSubInputWrapper from "./CsvSubInputWrapper.jsx";
 import "../styles/CsvRegionFormWrapper.css";
 
-export default function CsvRegionFormWrapper({ userCvData, setUserCvData }) {
-  const [activeFormId, setActiveFormId] = useState("");
-
-  const handleSetActiveFormId = (formId) => {
-    console.log("Ya Mami");
-    if (formId && userCvData[formId].length === 0) {
-      addToEmptyCategory(formId);
-    } else {
-      setActiveFormId(formId);
-    }
-  };
-
-  const addToEmptyCategory = (dataCategory) => {
-    let newDataCategoryArray = [];
-
-    const defaultCategoryObjects = {
-      workExperience: {
-        id: crypto.randomUUID(),
-        position: "",
-        company: "",
-        startDate: "",
-        endDate: "",
-        descriptions: [{ id: crypto.randomUUID(), description: "" }],
-      },
-      education: {
-        id: crypto.randomUUID(),
-        school: "",
-        course: "",
-        startDate: "",
-        endDate: "",
-        descriptions: [{ id: crypto.randomUUID(), description: "" }],
-      },
-      skills: {
-        id: crypto.randomUUID(),
-        description: "",
-      },
-      tools: {
-        id: crypto.randomUUID(),
-        description: "my first tool",
-      },
-    };
-    console.log("its empty", dataCategory);
-    newDataCategoryArray.push(structuredClone(defaultCategoryObjects[dataCategory]));
-    setActiveFormId(dataCategory);
-    setUserCvData((prev) => ({ ...prev, [dataCategory]: newDataCategoryArray }));
-  };
-
+export default function CsvRegionFormWrapper({ userCvData, setUserCvData, handleSetActiveFormId, activeFormId }) {
   return (
     <div className="enter-details-bottom-wrapper">
       <CsvRegionForm
@@ -71,7 +25,7 @@ export default function CsvRegionFormWrapper({ userCvData, setUserCvData }) {
         <CsvRegionFormInput inputLabelName={"Phone:"} userCvDataPropertyName={"phone"} inputPlaceholder={"Enter your phone number"} userValue={userCvData.personalDetails.phone} />
         <CsvRegionFormInput inputLabelName={"Email"} userCvDataPropertyName={"email"} inputPlaceholder={"Enter your email"} userValue={userCvData.personalDetails.email} />
         <CsvRegionFormInput inputLabelName={"Website"} userCvDataPropertyName={"website"} inputPlaceholder={"Enter your website"} userValue={userCvData.personalDetails.website} />
-        <CsvRegionFormInput inputLabelName={"Location"} userCvDataPropertyName={"location"} inputPlaceholder={"Enter your location"} userValue={userCvData.profileSummary.location} />
+        <CsvRegionFormInput inputLabelName={"Location"} userCvDataPropertyName={"location"} inputPlaceholder={"Enter your location"} userValue={userCvData.personalDetails.location} />
       </CsvRegionForm>
       <CsvRegionForm
         dataCategory={"profileSummary"}

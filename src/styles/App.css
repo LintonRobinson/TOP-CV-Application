@@ -177,11 +177,10 @@ main {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  min-height: 0;
+  overflow-y: auto;
+  position: relative;
 }
-
-/* .cv-document * {
-  border: red 1px solid;
-} */
 
 .cv-document-top {
   padding: 0 15px 15px 0;
@@ -205,7 +204,11 @@ main {
   padding-right: 15px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+}
+
+.cv-document-bottom-left > div {
+  padding: 15px 0;
+  border-bottom: dotted 2px var(--accent-color);
 }
 
 .cv-document-bottom-right {
@@ -217,9 +220,24 @@ main {
   display: flex;
   gap: 15px;
 }
+
+.cv-document-bottom-right .bottom-section-wrapper {
+  border-bottom: dotted 2px var(--accent-color);
+  padding: 15px 0;
+}
+
 .cv-document-bottom-right li,
 .cv-document-bottom-right span {
   font-size: 0.9rem;
+}
+
+.bottom-section-wrapper p {
+  max-width: 350px;
+}
+
+img {
+  width: 20px;
+  height: 20px;
 }
 
 /******************************************

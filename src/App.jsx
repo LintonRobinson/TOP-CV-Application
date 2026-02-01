@@ -2,50 +2,54 @@ import { useState } from "react";
 import { useRef } from "react";
 import EnterDetailsSection from "./components/EnterDetailsSection";
 import CsvRegion from "./components/CsvRegion";
+import gitHubIcon from "./assets/github-logo-white.png";
 
 import "./styles/App.css";
+let dummyTextExample = {
+  personalDetails: {
+    firstName: "Generate a CV!",
+    lastName: "",
+    jobTitle: "Example Job Title",
+    phone: "Example Phone",
+    email: "Example Email",
+    website: "Example Website",
+    location: "Example Location",
+  },
+  profileSummary: {
+    profileSummary: "Example of a profile summary goes here.",
+  },
+  workExperience: [
+    {
+      id: crypto.randomUUID(),
+      position: "Example Position",
+      company: "Example Company",
+      startDate: "Start Date",
+      endDate: "End Date",
+      descriptions: [
+        { id: crypto.randomUUID(), description: "Example description" },
+        { id: crypto.randomUUID(), description: "Example description" },
+      ],
+    },
+  ],
+  education: [
+    {
+      id: crypto.randomUUID(),
+      school: "Example School",
+      course: "Example Course",
+      startDate: "Start Date",
+      endDate: "End Date",
+      descriptions: [
+        { id: crypto.randomUUID(), description: "Example description" },
+        { id: crypto.randomUUID(), description: "Example description" },
+      ],
+    },
+  ],
+  skills: [{ id: crypto.randomUUID(), description: "Example description" }],
+  tools: [{ id: crypto.randomUUID(), description: "Example description" }],
+};
 
 function App() {
-  const [userCvData, setUserCvData] = useState({
-    personalDetails: {
-      firstName: "Linton",
-      lastName: "Robinson",
-      jobTitle: "Web Developer",
-      phone: "947-209-3477",
-      email: "joshuajrobinson384@gmail.com",
-      website: "ljviolinist.com",
-      location: "upperville",
-    },
-    profileSummary: { profileSummary: "A well thought out somethin" },
-    workExperience: [
-      {
-        id: 69,
-        position: "Videographer",
-        company: "Sphinx",
-        startDate: "June 2024",
-        endDate: "August 2024",
-        descriptions: [
-          { id: 1, description: "running around taking pics" },
-          { id: 2, description: "ya around taking pics" },
-        ],
-      },
-    ],
-    education: [
-      {
-        id: 67,
-        school: "Berklee",
-        course: "CWP",
-        startDate: "Ya Ma 2024",
-        endDate: "1/29/26",
-        descriptions: [
-          { id: 1, description: "going to the stu" },
-          { id: 2, description: "caf shows" },
-        ],
-      },
-    ],
-    skills: [{ id: 4, description: "The first skill" }],
-    tools: [{ id: 7, description: "The first tool" }],
-  });
+  const [userCvData, setUserCvData] = useState(dummyTextExample);
 
   const [enterDetailsSectionFlash, setEnterDetailsSectionFlash] = useState(false);
 
@@ -116,26 +120,25 @@ function App() {
                   <h4>Tools</h4>
 
                   <ul>
-                    <li>What I did</li>
-                    <li>What I did</li>
-                    <li>What I did</li>
-                    <li>What I did</li>
+                    {userCvData.tools.map((tool) => (
+                      <li key={tool.id}>{tool.description}</li>
+                    ))}
                   </ul>
                 </div>
                 <div className="bottom-section-wrapper">
-                  <h4>Tools</h4>
-
+                  <h4>Skills</h4>
                   <ul>
-                    <li>What I did</li>
-                    <li>What I did</li>
-                    <li>What I did</li>
-                    <li>What I did</li>
+                    {userCvData.skills.map((skill) => (
+                      <li key={skill.id}>{skill.description}</li>
+                    ))}
                   </ul>
                 </div>
               </div>
             </div>
           </div>
-          <span>Ya Mama</span>
+          <a href="https://github.com/LintonRobinson/TOP-CV-Application" aria-label="Corresponding GitHub Repository" target="blank">
+            <img src={gitHubIcon} alt="Git Hub Icon" />
+          </a>
         </section>
       </main>
     </>

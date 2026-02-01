@@ -29,7 +29,7 @@ export default function CsvSubInputWrapper({
       inputPlaceholder={"Enter your description"}
       userValue={categoryDescription.description}
       handleSetSubInputWrapperInputValues={setInputValues}
-      subInputWrapperInputValue={inputValues["descriptions"][index].description}
+      subInputWrapperInputValue={inputValues["descriptions"][index]?.description}
       newDescriptionArray={userCvData[dataCategory][dataCategoryArrayIndex]["descriptions"]}
       dataCategory={dataCategory}
       dataCategoryArrayIndex={dataCategoryArrayIndex}
@@ -112,7 +112,7 @@ export default function CsvSubInputWrapper({
       </div>
     );
 
-  const handleSubInputsSubmission = (e) => {
+  const handleSubInputsSubmission = () => {
     const subWrapperInputValues = { id: wrapperIdentifierId, ...inputValues };
     let newDataCategoryArray = userCvData[dataCategory];
     newDataCategoryArray[dataCategoryArrayIndex] = subWrapperInputValues;

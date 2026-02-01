@@ -3,13 +3,11 @@ export default function CsvRegion({ children, className = "", userCvData, dataCa
   let experienceElements;
 
   if (renderExperience) {
-    console.log("userCvData.dataCategory in re", userCvData);
-    console.log("userCvData.dataCategory in r", userCvData.dataCategory);
     experienceElements = userCvData[dataCategory].map((dataCategoryEntry) => (
       <div key={dataCategoryEntry.id} className="experience-wrapper">
         <div>
           <h5>{dataCategory === "workExperience" ? dataCategoryEntry.company : dataCategoryEntry.school}</h5>
-          <span>{`${dataCategoryEntry.startDate} - ${dataCategoryEntry.endDate}`}</span>
+          {dataCategoryEntry.startDate && dataCategoryEntry.endDate && <span>{`${dataCategoryEntry.startDate} - ${dataCategoryEntry.endDate}`}</span>}
         </div>
         <div>
           <div>

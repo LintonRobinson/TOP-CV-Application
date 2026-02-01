@@ -37,12 +37,11 @@ export default function CsvRegionForm({ dataCategory, formName, className, child
     e.preventDefault();
     if (dataCategory !== "tools" && dataCategory !== "skills") {
       const formInputs = Object.fromEntries(new FormData(e.currentTarget));
-      console.log("Something other than tools");
+
       setUserCvData((prev) => ({ ...prev, [dataCategory]: formInputs }));
       handleSetActiveFormId("");
     } else {
       let formInputs = Object.values(Object.fromEntries(new FormData(e.currentTarget)));
-      console.log("raw formInputs tools", formInputs);
       let arrayOfFormInputs = [];
       userCvData[dataCategory].forEach((dataCategoryEntry, index) => {
         arrayOfFormInputs.push({ id: dataCategoryEntry.id, description: formInputs[index] });
@@ -52,10 +51,10 @@ export default function CsvRegionForm({ dataCategory, formName, className, child
     }
   };
 
-  function addDataCategoryEntry(dataCategoryy) {
+  function addDataCategoryEntry(currentDataCategory) {
     let dataCategoryPresetObject;
 
-    switch (dataCategoryy) {
+    switch (currentDataCategory) {
       case "workExperience":
         dataCategoryPresetObject = {
           id: crypto.randomUUID(),
@@ -75,11 +74,13 @@ export default function CsvRegionForm({ dataCategory, formName, className, child
           endDate: "",
           descriptions: [],
         };
+        break;
       case "skills":
         dataCategoryPresetObject = {
           id: crypto.randomUUID(),
           description: "",
         };
+        break;
 
       case "tools":
         dataCategoryPresetObject = {
@@ -88,10 +89,11 @@ export default function CsvRegionForm({ dataCategory, formName, className, child
         };
     }
 
-    let newdDataCategoryArray = [...userCvData[dataCategoryy]];
+    console.log("dataCategoryPresetObject", dataCategoryPresetObject);
+    let newdDataCategoryArray = [...userCvData[currentDataCategory]];
     newdDataCategoryArray.push(dataCategoryPresetObject);
 
-    setUserCvData((prev) => ({ ...prev, [dataCategory]: newdDataCategoryArray }));
+    setUserCvData((prev) => ({ ...prev, [currentDataCategory]: newdDataCategoryArray }));
   }
 
   switch (dataCategory) {
@@ -156,7 +158,6 @@ export default function CsvRegionForm({ dataCategory, formName, className, child
       });
       break;
     case "tools":
-      console.log("userCvData.tools", userCvData.tools);
       experienceContainers = userCvData.tools.map((individualTool, index) => {
         return (
           <CsvRegionFormInput

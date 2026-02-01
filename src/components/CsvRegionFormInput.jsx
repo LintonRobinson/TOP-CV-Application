@@ -23,7 +23,7 @@ export default function CsvRegionFormInput({
       handleSetSubInputWrapperInputValues ? handleSetSubInputWrapperInputValues((prev) => ({ ...prev, [userCvDataPropertyName]: e.target.value })) : setInputValue(e.target.value);
     } else {
       let newDescriptionArrayCopy = [...newDescriptionArray];
-      newDescriptionArray[inputDescriptionIndex].description = e.target.value;
+      newDescriptionArray[inputIndex].description = e.target.value;
 
       handleSetSubInputWrapperInputValues ? handleSetSubInputWrapperInputValues((prev) => ({ ...prev, ["descriptions"]: newDescriptionArrayCopy })) : setInputValue(e.target.value);
     }
